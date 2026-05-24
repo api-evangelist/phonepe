@@ -1,0 +1,245 @@
+openapi: 3.1.0
+info:
+  title: PhonePe Payment Gateway API
+  description: |
+    Server-to-server PhonePe Payment Gateway (PG) REST API for creating
+    checkout orders, retrieving order status, and processing refunds across
+    UPI, cards, netbanking, and wallets.
+
+    Requests are authenticated with a merchant auth token issued by PhonePe
+    and sent in the `Authorization: O-Bearer <merchant-auth-token>` header.
+    Partner integrations also include the `X-MERCHANT-ID` header naming the
+    end merchant.
+
+    Only a representative subset of the PhonePe PG surface (checkout,
+    order status, refund initiation, refund status) is modeled here. See
+    the PhonePe developer documentation linked under externalDocs for
+    the full catalog.
+  version: "2.0.0"
+  contact:
+    name: PhonePe Developer Documentation
+    url: https://developer.phonepe.com/
+  license:
+    name: PhonePe Proprietary
+externalDocs:
+  description: PhonePe developer documentation
+  url: https://developer.phonepe.com/v1/docs/intro
+servers:
+  - url: https://api.phonepe.com/apis/pg
+    description: PhonePe PG production base URL.
+  - url: https://api-preprod.phonepe.com/apis/pg-sandbox
+    description: PhonePe PG sandbox base URL.
+tags:
+  - name: Checkout
+    description: Create payment orders.
+  - name: Order Status
+    description: Retrieve the status of a payment order.
+  - name: Refunds
+    description: Initiate and track refunds.
+security:
+  - merchantToken: []
+paths:
+  /checkout/v2/pay:
+    post:
+      tags: [Checkout]
+      summary: Create a checkout payment
+      description: |
+        Creates a PhonePe checkout order. The response contains a redirect or
+        intent URL that the merchant surfaces to the buyer so they can
+        authorize the payment.
+      operationId: createCheckoutPayment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CheckoutRequest"
+      responses:
+        "200":
+          description: Order created.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheckoutResponse"
+        "400":
+          description: Invalid request.
+        "401":
+          description: Invalid or missing merchant token.
+
+  /checkout/v2/order/{merchantOrderId}/status:
+    get:
+      tags: [Order Status]
+      summary: Get checkout order status
+      description: |
+        Returns the latest payment status for a merchant order, identified
+        by the merchant-assigned order ID.
+      operationId: getOrderStatus
+      parameters:
+        - in: path
+          name: merchantOrderId
+          required: true
+          schema:
+            type: string
+          description: Merchant-assigned order identifier.
+      responses:
+        "200":
+          description: Current order status.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OrderStatusResponse"
+        "404":
+          description: Order not found.
+
+  /payments/v2/refund:
+    post:
+      tags: [Refunds]
+      summary: Initiate a refund
+      description: |
+        Initiates a refund (partial or full) against a completed PhonePe
+        transaction.
+      operationId: createRefund
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RefundRequest"
+      responses:
+        "200":
+          description: Refund accepted.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RefundResponse"
+
+  /payments/v2/refund/{merchantRefundId}/status:
+    get:
+      tags: [Refunds]
+      summary: Get refund status
+      description: |
+        Returns the latest status of a previously initiated refund, keyed by
+        the merchant-assigned refund ID.
+      operationId: getRefundStatus
+      parameters:
+        - in: path
+          name: merchantRefundId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Current refund status.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RefundStatusResponse"
+
+components:
+  securitySchemes:
+    merchantToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |
+        Bearer-style merchant auth token issued by PhonePe. Sent as
+        `Authorization: O-Bearer <merchant-auth-token>`. Partner integrations
+        also include `X-MERCHANT-ID: <end-merchant-id>`.
+  schemas:
+    Amount:
+      type: object
+      properties:
+        amount:
+          type: integer
+          description: Order amount in paise.
+        currency:
+          type: string
+          enum: [INR]
+          default: INR
+    CheckoutRequest:
+      type: object
+      required: [merchantOrderId, amount]
+      properties:
+        merchantOrderId:
+          type: string
+          description: Merchant-assigned unique order identifier.
+        amount:
+          type: integer
+          description: Order amount in paise.
+        expireAfter:
+          type: integer
+          description: Order TTL in seconds.
+        paymentFlow:
+          type: object
+          additionalProperties: true
+          description: Payment flow object (e.g. PG_CHECKOUT, redirectUrl).
+        metaInfo:
+          type: object
+          additionalProperties: true
+    CheckoutResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+          description: PhonePe order identifier.
+        state:
+          type: string
+          description: Current order state.
+        expireAt:
+          type: integer
+        redirectUrl:
+          type: string
+          format: uri
+          description: URL to redirect the buyer to authorize the payment.
+    OrderStatusResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        merchantOrderId:
+          type: string
+        state:
+          type: string
+          description: PENDING / COMPLETED / FAILED / EXPIRED.
+        amount:
+          type: integer
+        paymentDetails:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    RefundRequest:
+      type: object
+      required: [merchantRefundId, originalMerchantOrderId, amount]
+      properties:
+        merchantRefundId:
+          type: string
+        originalMerchantOrderId:
+          type: string
+        amount:
+          type: integer
+          description: Refund amount in paise.
+    RefundResponse:
+      type: object
+      properties:
+        refundId:
+          type: string
+        merchantRefundId:
+          type: string
+        state:
+          type: string
+        amount:
+          type: integer
+    RefundStatusResponse:
+      type: object
+      properties:
+        refundId:
+          type: string
+        merchantRefundId:
+          type: string
+        originalMerchantOrderId:
+          type: string
+        amount:
+          type: integer
+        state:
+          type: string
