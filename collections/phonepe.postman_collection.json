@@ -1,0 +1,630 @@
+{
+  "item": [
+    {
+      "id": "6515489e-a16f-477f-82e9-dd74022190fa",
+      "name": "Checkout",
+      "description": {
+        "content": "Create payment orders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1be3538-ae9c-49d5-8dbb-91f11ad66335",
+          "name": "Create a checkout payment",
+          "request": {
+            "name": "Create a checkout payment",
+            "description": {
+              "content": "Creates a PhonePe checkout order. The response contains a redirect or\nintent URL that the merchant surfaces to the buyer so they can\nauthorize the payment.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "v2",
+                "pay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  \"metaInfo\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3682.2062541242985\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10e2514c-c4c1-4241-ab82-581a840cac5e",
+              "name": "Order created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": true,\n    \"key_1\": 7741,\n    \"key_2\": true,\n    \"key_3\": 7702,\n    \"key_4\": 9049.078613005655\n  },\n  \"metaInfo\": {\n    \"key_0\": 6324.462790431694\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"state\": \"string\",\n  \"expireAt\": 9513,\n  \"redirectUrl\": \"https://KgeRebSA.vqkwPTVsiiiglAmtVM9uYl6L4h.7vPl35PkHS6D9ur14L8i20PdUUdJptosmmdn\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7275fc54-e1ae-44e1-a00f-a26f426eb968",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": true,\n    \"key_1\": 7741,\n    \"key_2\": true,\n    \"key_3\": 7702,\n    \"key_4\": 9049.078613005655\n  },\n  \"metaInfo\": {\n    \"key_0\": 6324.462790431694\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "457a3e96-2fb0-4036-a4e3-8eebf2d6195a",
+              "name": "Invalid or missing merchant token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": true,\n    \"key_1\": 7741,\n    \"key_2\": true,\n    \"key_3\": 7702,\n    \"key_4\": 9049.078613005655\n  },\n  \"metaInfo\": {\n    \"key_0\": 6324.462790431694\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1b9fdf01-2aa1-48f9-b42d-fc47fbc1fa10",
+      "name": "Order Status",
+      "description": {
+        "content": "Retrieve the status of a payment order.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47a0dea7-6d90-4595-b3fc-9a24a347e66e",
+          "name": "Get checkout order status",
+          "request": {
+            "name": "Get checkout order status",
+            "description": {
+              "content": "Returns the latest payment status for a merchant order, identified\nby the merchant-assigned order ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "v2",
+                "order",
+                ":merchantOrderId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchantOrderId",
+                  "description": "(Required) Merchant-assigned order identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9305657d-9e0e-49a4-9817-eaa854d14cb4",
+              "name": "Current order status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "order",
+                    ":merchantOrderId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchantOrderId",
+                      "description": "(Required) Merchant-assigned order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"merchantOrderId\": \"string\",\n  \"state\": \"string\",\n  \"amount\": 4700,\n  \"paymentDetails\": [\n    {\n      \"key_0\": 4783,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 3113.2566064435273\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff6bff1f-6fa3-40f5-bba1-b55f83a74f51",
+              "name": "Order not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "order",
+                    ":merchantOrderId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchantOrderId",
+                      "description": "(Required) Merchant-assigned order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a2f61a7b-961a-4547-b308-e402eac244c9",
+      "name": "Refunds",
+      "description": {
+        "content": "Initiate and track refunds.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "566a5db2-4e70-402d-9c80-7a50ccb1d0f4",
+          "name": "Initiate a refund",
+          "request": {
+            "name": "Initiate a refund",
+            "description": {
+              "content": "Initiates a refund (partial or full) against a completed PhonePe\ntransaction.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v2",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantRefundId\": \"<string>\",\n  \"originalMerchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36154408-1269-4ac2-9e26-5d17aa6cfd68",
+              "name": "Refund accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v2",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantRefundId\": \"<string>\",\n  \"originalMerchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refundId\": \"string\",\n  \"merchantRefundId\": \"string\",\n  \"state\": \"string\",\n  \"amount\": 8816\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c3dc347-4f3d-48f9-b568-36f77700c5aa",
+          "name": "Get refund status",
+          "request": {
+            "name": "Get refund status",
+            "description": {
+              "content": "Returns the latest status of a previously initiated refund, keyed by\nthe merchant-assigned refund ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v2",
+                "refund",
+                ":merchantRefundId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchantRefundId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34da26f5-2486-4b29-9311-43fd7d3a435b",
+              "name": "Current refund status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v2",
+                    "refund",
+                    ":merchantRefundId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchantRefundId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refundId\": \"string\",\n  \"merchantRefundId\": \"string\",\n  \"originalMerchantOrderId\": \"string\",\n  \"amount\": 3137,\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.phonepe.com/apis/pg",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6eebbfd9-d4ff-41ab-8c67-48e7eb5f9045",
+    "name": "PhonePe Payment Gateway API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Server-to-server PhonePe Payment Gateway (PG) REST API for creating\ncheckout orders, retrieving order status, and processing refunds across\nUPI, cards, netbanking, and wallets.\n\nRequests are authenticated with a merchant auth token issued by PhonePe\nand sent in the `Authorization: O-Bearer <merchant-auth-token>` header.\nPartner integrations also include the `X-MERCHANT-ID` header naming the\nend merchant.\n\nOnly a representative subset of the PhonePe PG surface (checkout,\norder status, refund initiation, refund status) is modeled here. See\nthe PhonePe developer documentation linked under externalDocs for\nthe full catalog.\n\n\nContact Support:\n Name: PhonePe Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

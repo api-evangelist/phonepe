@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PhonePe Payment Gateway API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checkout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a checkout payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.phonepe.com/apis/pg/checkout/v2/pay",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a PhonePe checkout order. The response contains a redirect or\nintent URL that the merchant surfaces to the buyer so they can\nauthorize the payment.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Order Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get checkout order status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.phonepe.com/apis/pg/checkout/v2/order/:merchantOrderId/status",
+            "params": [
+              {
+                "name": "merchantOrderId",
+                "value": "",
+                "type": "path",
+                "description": "Merchant-assigned order identifier."
+              }
+            ]
+          },
+          "docs": "Returns the latest payment status for a merchant order, identified\nby the merchant-assigned order ID.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Refunds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate a refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.phonepe.com/apis/pg/payments/v2/refund",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates a refund (partial or full) against a completed PhonePe\ntransaction.\n"
+        },
+        {
+          "info": {
+            "name": "Get refund status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.phonepe.com/apis/pg/payments/v2/refund/:merchantRefundId/status",
+            "params": [
+              {
+                "name": "merchantRefundId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the latest status of a previously initiated refund, keyed by\nthe merchant-assigned refund ID.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
