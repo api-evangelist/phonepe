@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/phonepe-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: merchantToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: |-
+    Bearer-style merchant auth token issued by PhonePe. Sent as
+    `Authorization: O-Bearer <merchant-auth-token>`. Partner integrations
+    also include `X-MERCHANT-ID: <end-merchant-id>`.
+  sources:
+  - openapi/phonepe-openapi.yml
