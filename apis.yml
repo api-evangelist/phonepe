@@ -288,6 +288,8 @@ apis:
       - type: Website
         url: https://www.indusappstore.com/developer/
 common:
+  - type: AgenticAccess
+    url: agentic-access/phonepe-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/phonepe-vulnerability-disclosure.yml
   - type: DomainSecurity
