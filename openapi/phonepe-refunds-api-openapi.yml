@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: PhonePe Payment Gateway Checkout Refunds API
+  description: 'Server-to-server PhonePe Payment Gateway (PG) REST API for creating
+
+    checkout orders, retrieving order status, and processing refunds across
+
+    UPI, cards, netbanking, and wallets.
+
+
+    Requests are authenticated with a merchant auth token issued by PhonePe
+
+    and sent in the `Authorization: O-Bearer <merchant-auth-token>` header.
+
+    Partner integrations also include the `X-MERCHANT-ID` header naming the
+
+    end merchant.
+
+
+    Only a representative subset of the PhonePe PG surface (checkout,
+
+    order status, refund initiation, refund status) is modeled here. See
+
+    the PhonePe developer documentation linked under externalDocs for
+
+    the full catalog.
+
+    '
+  version: 2.0.0
+  contact:
+    name: PhonePe Developer Documentation
+    url: https://developer.phonepe.com/
+  license:
+    name: PhonePe Proprietary
+servers:
+- url: https://api.phonepe.com/apis/pg
+  description: PhonePe PG production base URL.
+- url: https://api-preprod.phonepe.com/apis/pg-sandbox
+  description: PhonePe PG sandbox base URL.
+security:
+- merchantToken: []
+tags:
+- name: Refunds
+  description: Initiate and track refunds.
+paths:
+  /payments/v2/refund:
+    post:
+      tags:
+      - Refunds
+      summary: Initiate a refund
+      description: 'Initiates a refund (partial or full) against a completed PhonePe
+
+        transaction.
+
+        '
+      operationId: createRefund
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundRequest'
+      responses:
+        '200':
+          description: Refund accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefundResponse'
+  /payments/v2/refund/{merchantRefundId}/status:
+    get:
+      tags:
+      - Refunds
+      summary: Get refund status
+      description: 'Returns the latest status of a previously initiated refund, keyed by
+
+        the merchant-assigned refund ID.
+
+        '
+      operationId: getRefundStatus
+      parameters:
+      - in: path
+        name: merchantRefundId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Current refund status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefundStatusResponse'
+components:
+  schemas:
+    RefundResponse:
+      type: object
+      properties:
+        refundId:
+          type: string
+        merchantRefundId:
+          type: string
+        state:
+          type: string
+        amount:
+          type: integer
+    RefundRequest:
+      type: object
+      required:
+      - merchantRefundId
+      - originalMerchantOrderId
+      - amount
+      properties:
+        merchantRefundId:
+          type: string
+        originalMerchantOrderId:
+          type: string
+        amount:
+          type: integer
+          description: Refund amount in paise.
+    RefundStatusResponse:
+      type: object
+      properties:
+        refundId:
+          type: string
+        merchantRefundId:
+          type: string
+        originalMerchantOrderId:
+          type: string
+        amount:
+          type: integer
+        state:
+          type: string
+  securitySchemes:
+    merchantToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Bearer-style merchant auth token issued by PhonePe. Sent as
+
+        `Authorization: O-Bearer <merchant-auth-token>`. Partner integrations
+
+        also include `X-MERCHANT-ID: <end-merchant-id>`.
+
+        '
+externalDocs:
+  description: PhonePe developer documentation
+  url: https://developer.phonepe.com/v1/docs/intro

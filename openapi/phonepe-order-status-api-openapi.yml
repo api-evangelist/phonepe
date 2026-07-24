@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: PhonePe Payment Gateway Checkout Order Status API
+  description: 'Server-to-server PhonePe Payment Gateway (PG) REST API for creating
+
+    checkout orders, retrieving order status, and processing refunds across
+
+    UPI, cards, netbanking, and wallets.
+
+
+    Requests are authenticated with a merchant auth token issued by PhonePe
+
+    and sent in the `Authorization: O-Bearer <merchant-auth-token>` header.
+
+    Partner integrations also include the `X-MERCHANT-ID` header naming the
+
+    end merchant.
+
+
+    Only a representative subset of the PhonePe PG surface (checkout,
+
+    order status, refund initiation, refund status) is modeled here. See
+
+    the PhonePe developer documentation linked under externalDocs for
+
+    the full catalog.
+
+    '
+  version: 2.0.0
+  contact:
+    name: PhonePe Developer Documentation
+    url: https://developer.phonepe.com/
+  license:
+    name: PhonePe Proprietary
+servers:
+- url: https://api.phonepe.com/apis/pg
+  description: PhonePe PG production base URL.
+- url: https://api-preprod.phonepe.com/apis/pg-sandbox
+  description: PhonePe PG sandbox base URL.
+security:
+- merchantToken: []
+tags:
+- name: Order Status
+  description: Retrieve the status of a payment order.
+paths:
+  /checkout/v2/order/{merchantOrderId}/status:
+    get:
+      tags:
+      - Order Status
+      summary: Get checkout order status
+      description: 'Returns the latest payment status for a merchant order, identified
+
+        by the merchant-assigned order ID.
+
+        '
+      operationId: getOrderStatus
+      parameters:
+      - in: path
+        name: merchantOrderId
+        required: true
+        schema:
+          type: string
+        description: Merchant-assigned order identifier.
+      responses:
+        '200':
+          description: Current order status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderStatusResponse'
+        '404':
+          description: Order not found.
+components:
+  schemas:
+    OrderStatusResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        merchantOrderId:
+          type: string
+        state:
+          type: string
+          description: PENDING / COMPLETED / FAILED / EXPIRED.
+        amount:
+          type: integer
+        paymentDetails:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    merchantToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Bearer-style merchant auth token issued by PhonePe. Sent as
+
+        `Authorization: O-Bearer <merchant-auth-token>`. Partner integrations
+
+        also include `X-MERCHANT-ID: <end-merchant-id>`.
+
+        '
+externalDocs:
+  description: PhonePe developer documentation
+  url: https://developer.phonepe.com/v1/docs/intro
