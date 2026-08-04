@@ -1,0 +1,18 @@
+{
+  "provider": "phonepe",
+  "sources": [
+    "phonepe-checkout-api-openapi.yml",
+    "phonepe-order-status-api-openapi.yml",
+    "phonepe-refunds-api-openapi.yml"
+  ],
+  "outputs": [
+    "phonepe-checkout-api-openapi.yml",
+    "phonepe-order-status-api-openapi.yml",
+    "phonepe-refunds-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
