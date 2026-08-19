@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "f209beb4-6d14-4332-a421-5dab3e2ddb10",
+      "name": "Order Status",
+      "description": {
+        "content": "Retrieve the status of a payment order.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0a1367c-9873-4492-ab65-5a7213a18b75",
+          "name": "Get checkout order status",
+          "request": {
+            "name": "Get checkout order status",
+            "description": {
+              "content": "Returns the latest payment status for a merchant order, identified\nby the merchant-assigned order ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "v2",
+                "order",
+                ":merchantOrderId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchantOrderId",
+                  "description": "(Required) Merchant-assigned order identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15fd4a94-055a-41a0-90ab-cd764476bad7",
+              "name": "Current order status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "order",
+                    ":merchantOrderId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchantOrderId",
+                      "description": "(Required) Merchant-assigned order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"merchantOrderId\": \"string\",\n  \"state\": \"string\",\n  \"amount\": 9944,\n  \"paymentDetails\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": false\n    },\n    {\n      \"key_0\": 3155,\n      \"key_1\": \"string\",\n      \"key_2\": 756.6426791551173\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd3f6b47-52ab-40e7-b15c-7528b8699bd8",
+              "name": "Order not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "order",
+                    ":merchantOrderId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchantOrderId",
+                      "description": "(Required) Merchant-assigned order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.phonepe.com/apis/pg",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97b5c679-cbb5-49af-87da-cfe02500573c",
+    "name": "PhonePe Payment Gateway Checkout Order Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Server-to-server PhonePe Payment Gateway (PG) REST API for creating\ncheckout orders, retrieving order status, and processing refunds across\nUPI, cards, netbanking, and wallets.\n\nRequests are authenticated with a merchant auth token issued by PhonePe\nand sent in the `Authorization: O-Bearer <merchant-auth-token>` header.\nPartner integrations also include the `X-MERCHANT-ID` header naming the\nend merchant.\n\nOnly a representative subset of the PhonePe PG surface (checkout,\norder status, refund initiation, refund status) is modeled here. See\nthe PhonePe developer documentation linked under externalDocs for\nthe full catalog.\n\n\nContact Support:\n Name: PhonePe Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

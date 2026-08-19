@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PhonePe Payment Gateway Checkout API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checkout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a checkout payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.phonepe.com/apis/pg/checkout/v2/pay",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a PhonePe checkout order. The response contains a redirect or\nintent URL that the merchant surfaces to the buyer so they can\nauthorize the payment.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PhonePe Payment Gateway Checkout Order Status API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get checkout order status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.phonepe.com/apis/pg/checkout/v2/order/:merchantOrderId/status",
+            "params": [
+              {
+                "name": "merchantOrderId",
+                "value": "",
+                "type": "path",
+                "description": "Merchant-assigned order identifier."
+              }
+            ]
+          },
+          "docs": "Returns the latest payment status for a merchant order, identified\nby the merchant-assigned order ID.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

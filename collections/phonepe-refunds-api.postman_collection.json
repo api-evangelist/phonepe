@@ -1,0 +1,254 @@
+{
+  "item": [
+    {
+      "id": "4781e2e6-d1e3-423e-95cd-7eb587ecf27c",
+      "name": "Refunds",
+      "description": {
+        "content": "Initiate and track refunds.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a23c059-b351-4f34-8650-1cb285f60ba1",
+          "name": "Initiate a refund",
+          "request": {
+            "name": "Initiate a refund",
+            "description": {
+              "content": "Initiates a refund (partial or full) against a completed PhonePe\ntransaction.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v2",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantRefundId\": \"<string>\",\n  \"originalMerchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4ab8349-bff4-4fd0-bebd-6b58386f921f",
+              "name": "Refund accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v2",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantRefundId\": \"<string>\",\n  \"originalMerchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refundId\": \"string\",\n  \"merchantRefundId\": \"string\",\n  \"state\": \"string\",\n  \"amount\": 828\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b12875fc-edf1-4176-a034-dd4071117d85",
+          "name": "Get refund status",
+          "request": {
+            "name": "Get refund status",
+            "description": {
+              "content": "Returns the latest status of a previously initiated refund, keyed by\nthe merchant-assigned refund ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                "v2",
+                "refund",
+                ":merchantRefundId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "merchantRefundId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a93e1644-3bb0-4ca2-b13f-df236895c522",
+              "name": "Current refund status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    "v2",
+                    "refund",
+                    ":merchantRefundId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "merchantRefundId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refundId\": \"string\",\n  \"merchantRefundId\": \"string\",\n  \"originalMerchantOrderId\": \"string\",\n  \"amount\": 400,\n  \"state\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.phonepe.com/apis/pg",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3644f5d2-08bd-44db-b422-9754dc4f825b",
+    "name": "PhonePe Payment Gateway Checkout Refunds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Server-to-server PhonePe Payment Gateway (PG) REST API for creating\ncheckout orders, retrieving order status, and processing refunds across\nUPI, cards, netbanking, and wallets.\n\nRequests are authenticated with a merchant auth token issued by PhonePe\nand sent in the `Authorization: O-Bearer <merchant-auth-token>` header.\nPartner integrations also include the `X-MERCHANT-ID` header naming the\nend merchant.\n\nOnly a representative subset of the PhonePe PG surface (checkout,\norder status, refund initiation, refund status) is modeled here. See\nthe PhonePe developer documentation linked under externalDocs for\nthe full catalog.\n\n\nContact Support:\n Name: PhonePe Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

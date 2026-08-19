@@ -1,0 +1,250 @@
+{
+  "item": [
+    {
+      "id": "77762a8d-c1df-4826-ba91-f5130e7fc197",
+      "name": "Checkout",
+      "description": {
+        "content": "Create payment orders.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba3e109e-b96e-43ae-9dfc-7cb8b8e578f7",
+          "name": "Create a checkout payment",
+          "request": {
+            "name": "Create a checkout payment",
+            "description": {
+              "content": "Creates a PhonePe checkout order. The response contains a redirect or\nintent URL that the merchant surfaces to the buyer so they can\nauthorize the payment.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "checkout",
+                "v2",
+                "pay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": \"string\"\n  },\n  \"metaInfo\": {\n    \"key_0\": true,\n    \"key_1\": false,\n    \"key_2\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c4682df-b8b7-42df-93b5-75d8e9464701",
+              "name": "Order created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": 186\n  },\n  \"metaInfo\": {\n    \"key_0\": 5942.014857449393\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"string\",\n  \"state\": \"string\",\n  \"expireAt\": 7600,\n  \"redirectUrl\": \"https://JULGhhJA.lvsyExkZMWILUwQA8Umx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a03188fc-38ce-40b1-a4b2-4c5750d0dd79",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": 186\n  },\n  \"metaInfo\": {\n    \"key_0\": 5942.014857449393\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "08c97379-9c73-47d2-949b-46783aec8335",
+              "name": "Invalid or missing merchant token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "checkout",
+                    "v2",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"merchantOrderId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"expireAfter\": \"<integer>\",\n  \"paymentFlow\": {\n    \"key_0\": 186\n  },\n  \"metaInfo\": {\n    \"key_0\": 5942.014857449393\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.phonepe.com/apis/pg",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "15ed8efa-0179-4026-a417-5db9b8682fde",
+    "name": "PhonePe Payment Gateway Checkout API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Server-to-server PhonePe Payment Gateway (PG) REST API for creating\ncheckout orders, retrieving order status, and processing refunds across\nUPI, cards, netbanking, and wallets.\n\nRequests are authenticated with a merchant auth token issued by PhonePe\nand sent in the `Authorization: O-Bearer <merchant-auth-token>` header.\nPartner integrations also include the `X-MERCHANT-ID` header naming the\nend merchant.\n\nOnly a representative subset of the PhonePe PG surface (checkout,\norder status, refund initiation, refund status) is modeled here. See\nthe PhonePe developer documentation linked under externalDocs for\nthe full catalog.\n\n\nContact Support:\n Name: PhonePe Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
