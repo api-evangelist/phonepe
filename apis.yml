@@ -40,7 +40,7 @@ tags:
   - India
 url: >-
   https://raw.githubusercontent.com/api-evangelist/phonepe/refs/heads/main/apis.yml
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - aid: phonepe:pg
   name: PhonePe Payment Gateway API
