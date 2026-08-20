@@ -91,6 +91,10 @@ apis:
   humanURL: https://developer.phonepe.com/v1/docs/webhook
   baseURL: customer-configured
   tags:
+  - Webhook
+  - Callbacks
+  - Event
+  tags_raw:
   - Webhooks
   - Callbacks
   - Events
@@ -106,6 +110,10 @@ apis:
   baseURL: https://api.phonepe.com/apis/pg
   tags:
   - QR
+  - In-Store
+  - UPI
+  tags_raw:
+  - QR
   - In Store
   - UPI
   properties:
@@ -119,6 +127,10 @@ apis:
   humanURL: https://developer.phonepe.com/v1/docs/static-qr
   baseURL: https://api.phonepe.com/apis/pg
   tags:
+  - QR
+  - In-Store
+  - Static
+  tags_raw:
   - QR
   - In Store
   - Static
@@ -135,6 +147,10 @@ apis:
   tags:
   - UPI
   - Collect
+  - In-Store
+  tags_raw:
+  - UPI
+  - Collect
   - In Store
   properties:
   - type: Documentation
@@ -147,6 +163,10 @@ apis:
   humanURL: https://developer.phonepe.com/v1/docs/edc
   baseURL: https://api.phonepe.com/apis/pg
   tags:
+  - EDC
+  - Point-of-Sale
+  - In-Store
+  tags_raw:
   - EDC
   - POS
   - In Store
