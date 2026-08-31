@@ -121,7 +121,7 @@ apis:
   baseURL: https://api.phonepe.com/apis/pg
   tags:
   - QR
-  - In-Store
+  - In Store
   - UPI
   tags_raw:
   - QR
@@ -139,7 +139,7 @@ apis:
   baseURL: https://api.phonepe.com/apis/pg
   tags:
   - QR
-  - In-Store
+  - In Store
   - Static
   tags_raw:
   - QR
@@ -158,7 +158,7 @@ apis:
   tags:
   - UPI
   - Collect
-  - In-Store
+  - In Store
   tags_raw:
   - UPI
   - Collect
@@ -175,8 +175,8 @@ apis:
   baseURL: https://api.phonepe.com/apis/pg
   tags:
   - EDC
-  - Point-of-Sale
-  - In-Store
+  - POS
+  - In Store
   tags_raw:
   - EDC
   - POS
