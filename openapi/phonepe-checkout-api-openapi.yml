@@ -1,31 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: PhonePe Payment Gateway Checkout API
   description: 'Server-to-server PhonePe Payment Gateway (PG) REST API for creating
 
     checkout orders, retrieving order status, and processing refunds across
 
-    UPI, cards, netbanking, and wallets.
-
-
-    Requests are authenticated with a merchant auth token issued by PhonePe
-
-    and sent in the `Authorization: O-Bearer <merchant-auth-token>` header.
-
-    Partner integrations also include the `X-MERCHANT-ID` header naming the
-
-    end merchant.
-
-
-    Only a representative subset of the PhonePe PG surface (checkout,
-
-    order status, refund initiation, refund status) is modeled here. See
-
-    the PhonePe developer documentation linked under externalDocs for
-
-    the full catalog.
-
-    '
+    UPI, cards, netbanking, and wallets.'
   version: 2.0.0
   contact:
     name: PhonePe Developer Documentation
@@ -52,9 +32,7 @@ paths:
 
         intent URL that the merchant surfaces to the buyer so they can
 
-        authorize the payment.
-
-        '
+        authorize the payment.'
       operationId: createCheckoutPayment
       requestBody:
         required: true
