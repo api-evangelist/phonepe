@@ -53,6 +53,21 @@ paths:
           description: Invalid or missing merchant token.
 components:
   schemas:
+    CheckoutResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+          description: PhonePe order identifier.
+        state:
+          type: string
+          description: Current order state.
+        expireAt:
+          type: integer
+        redirectUrl:
+          type: string
+          format: uri
+          description: URL to redirect the buyer to authorize the payment.
     CheckoutRequest:
       type: object
       required:
@@ -75,21 +90,6 @@ components:
         metaInfo:
           type: object
           additionalProperties: true
-    CheckoutResponse:
-      type: object
-      properties:
-        orderId:
-          type: string
-          description: PhonePe order identifier.
-        state:
-          type: string
-          description: Current order state.
-        expireAt:
-          type: integer
-        redirectUrl:
-          type: string
-          format: uri
-          description: URL to redirect the buyer to authorize the payment.
   securitySchemes:
     merchantToken:
       type: apiKey
