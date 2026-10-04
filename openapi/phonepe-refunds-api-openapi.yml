@@ -69,30 +69,6 @@ paths:
                 $ref: '#/components/schemas/RefundStatusResponse'
 components:
   schemas:
-    RefundResponse:
-      type: object
-      properties:
-        refundId:
-          type: string
-        merchantRefundId:
-          type: string
-        state:
-          type: string
-        amount:
-          type: integer
-    RefundStatusResponse:
-      type: object
-      properties:
-        refundId:
-          type: string
-        merchantRefundId:
-          type: string
-        originalMerchantOrderId:
-          type: string
-        amount:
-          type: integer
-        state:
-          type: string
     RefundRequest:
       type: object
       required:
@@ -107,6 +83,30 @@ components:
         amount:
           type: integer
           description: Refund amount in paise.
+    RefundStatusResponse:
+      type: object
+      properties:
+        refundId:
+          type: string
+        merchantRefundId:
+          type: string
+        originalMerchantOrderId:
+          type: string
+        amount:
+          type: integer
+        state:
+          type: string
+    RefundResponse:
+      type: object
+      properties:
+        refundId:
+          type: string
+        merchantRefundId:
+          type: string
+        state:
+          type: string
+        amount:
+          type: integer
   securitySchemes:
     merchantToken:
       type: apiKey
