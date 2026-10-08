@@ -345,6 +345,12 @@ apis:
   - type: OpenAPI
     url: openapi/phonepe-refunds-api-openapi.yml
 common:
+  - type: Plans
+    url: plans/phonepe-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/phonepe-rate-limits.yml
+  - type: FinOps
+    url: finops/phonepe-finops.yml
   - url: https://www.phonepe.com/press/
     type: Blog
   - type: AgenticAccess
