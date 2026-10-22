@@ -48,3 +48,43 @@
     detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
+- slug: phonepe-rbi-authorised-payment-system-operators-payment-and-settlement-systems-act-2007
+  label: RBI authorised payment system operators (Payment and Settlement Systems Act, 2007)
+  partner_name: RBI authorised payment system operators (Payment and Settlement Systems Act, 2007)
+  category: India RBI-authorised payment system operator (Bharat Bill Payment Operating Units (BBPOUs), Payment
+    Aggregators, Prepaid Payment Instruments)
+  type: register
+  channel: regulator-register
+  evidence: https://www.rbi.org.in/Scripts/PublicationsView.aspx?id=12043
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: RBI authorised payment system operators (Payment and Settlement Systems Act, 2007)
+    spec_file: null
+    standard: null
+    role: payment-aggregator
+    registrations:
+    - registered_name: PhonePe Limited
+      licences:
+      - Bharat Bill Payment Operating Unit (BBPOU) under Bharat Bill Payment System (BBPS)
+      - Prepaid Payment Instruments known as ‘PhonePe’
+      - PA-O-‘PhonePe’
+      - PA-P
+      register_sections:
+      - Bharat Bill Payment Operating Units (BBPOUs)
+      - Prepaid Payment Instruments
+      - Payment Aggregators
+      register_country: IN
+      matched_domain: phonepe.com
+      matched_by: domain
+      brands:
+      - PhonePe
+      identity: wikidata Q30324297 'PhonePe' P856 https://www.phonepe.com
+    register_date: '2026-10-16'
+    signal_note: 'participation only: an RBI Certificate of Authorisation under the PSS Act 2007; the register publishes
+      no API conformance'
+    detected_by: sweep-india-rbi-regulated-entities.py
+    detected: '2026-10-22'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  status: not-a-workflow
+  arazzo: null
