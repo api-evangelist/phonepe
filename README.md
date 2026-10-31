@@ -1,4 +1,4 @@
-# PhonePe (phonepe)
+# PhonePe
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,381 +66,138 @@
 
 PhonePe is India's largest UPI payments network, owned by Walmart. Its PhonePe Business / Developer platform exposes the PhonePe Payment Gateway (PG) APIs for collecting payments, refunds, and status checks across UPI, cards, netbanking, and wallets, alongside in-store solutions (Static QR, Dynamic QR, Collect Call, Integrated EDC). Backend integrations are wrapped in official Java, Python, Node.js, and PHP server SDKs, with mobile SDKs for Android, iOS, Flutter, React Native, and Ionic. PhonePe also operates the Indus AppStore, a developer platform for native app distribution in India.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/phonepe/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/phonepe/refs/heads/main/apis.yml)
+**Areas:** Payments · Payment Gateway · UPI · QR · EDC · App Store · Fintech · India
 
-## Scope
+## PhonePe on APIs.io
 
-- **Type:** Index
-- **Position:** Producer
-- **Access:** 3rd-Party
+Everything profiled for PhonePe is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/phonepe/](https://apis.io/providers/phonepe/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (21)
 
-- Payments
-- Payment Gateway
-- UPI
-- QR
-- EDC
-- App Store
-- Fintech
-- India
+- [PhonePe Payment Gateway API](https://apis.io/apis/phonepe/pg/) — Server-to-server REST API for creating PhonePe checkout orders, kicking off UPI / card / wallet / netbanking flows, and retrieving payment status. Issues…
+- [PhonePe Refunds API](https://apis.io/apis/phonepe/refunds/) — Initiates refunds against completed PhonePe transactions and retrieves refund status. Supports partial and full refunds.
+- [PhonePe Check Payment Status API](https://apis.io/apis/phonepe/status/) — Polling endpoint to retrieve the current status of a payment order by merchant order ID. Used to reconcile in-store and online flows after buyer authorisation.
+- [PhonePe S2S Callback / Webhook](https://apis.io/apis/phonepe/webhook/) — Server-to-server callback that PhonePe POSTs to a merchant-configured URL on terminal payment events. Payloads are signed (X-VERIFY) so the merchant can…
+- [PhonePe Dynamic QR Solution](https://apis.io/apis/phonepe/dynamic-qr/) — Generates per-order dynamic QR codes for in-store collection, with order-linked status retrieval and callbacks. Targeted at retail counters and…
+- [PhonePe Integrated Static QR](https://apis.io/apis/phonepe/static-qr/) — Onboards a merchant store with a static PhonePe QR code that maps collected funds to the merchant account. Lower-touch alternative to dynamic QR for…
+- [PhonePe Collect Call Solution](https://apis.io/apis/phonepe/collect-call/) — Merchant-initiated UPI collect-request flow: the merchant raises a payment request to a customer's UPI handle, the customer approves in their UPI app, and…
+- [PhonePe Integrated EDC Solution](https://apis.io/apis/phonepe/edc/) — Integration with PhonePe's EDC (Electronic Data Capture / POS) terminals, allowing merchant systems to push order amounts to the terminal and receive…
+- [PhonePe Android SDK](https://apis.io/apis/phonepe/android-sdk/) — Native Android SDK that embeds the PhonePe checkout experience inside a merchant app, supporting the full PG flow across UPI and other payment methods.
+- [PhonePe iOS SDK](https://apis.io/apis/phonepe/ios-sdk/) — Native iOS SDK that embeds the PhonePe checkout experience inside a merchant iOS app.
+- [PhonePe Flutter SDK](https://apis.io/apis/phonepe/flutter-sdk/) — Flutter plugin wrapping the PhonePe Android and iOS SDKs for cross-platform mobile checkout.
+- [PhonePe React Native SDK](https://apis.io/apis/phonepe/react-native-sdk/) — React Native plugin wrapping the PhonePe Android and iOS SDKs for cross-platform mobile checkout.
+- [PhonePe Ionic SDK](https://apis.io/apis/phonepe/ionic-sdk/) — Ionic plugin wrapping the PhonePe Android and iOS SDKs for hybrid mobile checkout.
+- [PhonePe Java Backend SDK](https://apis.io/apis/phonepe/java-sdk/) — Server-side Java SDK that wraps the PhonePe PG REST API, handling X-VERIFY signing, request modelling, and response parsing.
+- [PhonePe Python Backend SDK](https://apis.io/apis/phonepe/python-sdk/) — Server-side Python SDK wrapping the PhonePe PG REST API.
+- [PhonePe Node.js Backend SDK](https://apis.io/apis/phonepe/node-sdk/) — Server-side Node.js SDK wrapping the PhonePe PG REST API.
+- [PhonePe PHP Backend SDK](https://apis.io/apis/phonepe/php-sdk/) — Server-side PHP SDK wrapping the PhonePe PG REST API.
+- [Indus AppStore Developer Platform](https://apis.io/apis/phonepe/indus-appstore/) — PhonePe's Indus AppStore is an India-first native Android app marketplace with a developer console for app submission, listings, releases, and analytics,…
+- [PhonePe Checkout API](https://apis.io/apis/phonepe/phonepe-checkout-api/) — Create payment orders.
+- [PhonePe Order Status API](https://apis.io/apis/phonepe/phonepe-order-status-api/) — Retrieve the status of a payment order.
+- [PhonePe Refunds API](https://apis.io/apis/phonepe/phonepe-refunds-api/) — Initiate and track refunds.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### PhonePe Payment Gateway API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Server-to-server REST API for creating PhonePe checkout orders, kicking off UPI / card / wallet / netbanking flows, and retrieving payment status. Issues redirect or intent URLs for the buyer to authorize and returns settlement-ready transaction state on completion.
+- [Phonepe Agentic Access](https://apis.io/agentic-access/phonepe/phonepe-agentic-access/)
 
-- **Human URL:** [https://developer.phonepe.com/v1/docs/intro](https://developer.phonepe.com/v1/docs/intro)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Payments
-- Checkout
-- Payment Gateway
+- [PhonePe Payment Gateway API](https://apis.io/collections/phonepe/open-phonepe/)
+- [PhonePe Payment Gateway Checkout API](https://apis.io/collections/phonepe/open-phonepe-checkout-api/)
+- [PhonePe Payment Gateway Checkout Order Status API](https://apis.io/collections/phonepe/open-phonepe-order-status-api/)
+- [PhonePe Payment Gateway Checkout Refunds API](https://apis.io/collections/phonepe/open-phonepe-refunds-api/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://developer.phonepe.com/v1/docs/intro)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### PhonePe Refunds API
+- [Phonepe Authentication](https://apis.io/security/phonepe/phonepe-authentication/)
+- [Phonepe Domain Security](https://apis.io/security/phonepe/phonepe-domain-security/)
+- [Phonepe Vulnerability Disclosure](https://apis.io/security/phonepe/phonepe-vulnerability-disclosure/)
 
-Initiates refunds against completed PhonePe transactions and retrieves refund status. Supports partial and full refunds.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://developer.phonepe.com/v1/docs/refund-api](https://developer.phonepe.com/v1/docs/refund-api)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
+Published plans, tiers and prices.
 
-#### Tags
+- [Phonepe Plans Pricing](https://apis.io/plans/phonepe/phonepe-plans-pricing/)
 
-- Refunds
-- Payments
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://developer.phonepe.com/v1/docs/refund-api)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Phonepe Rate Limits](https://apis.io/rate-limits/phonepe/phonepe-rate-limits/)
 
-### PhonePe Check Payment Status API
+#### FinOps (1)
 
-Polling endpoint to retrieve the current status of a payment order by merchant order ID. Used to reconcile in-store and online flows after buyer authorisation.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://developer.phonepe.com/v1/docs/check-status-api](https://developer.phonepe.com/v1/docs/check-status-api)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
+- [Phonepe Finops](https://apis.io/finops/phonepe/phonepe-finops/)
 
-#### Tags
+## Where to find this API
 
-- Status
-- Reconciliation
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/check-status-api)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe S2S Callback / Webhook
-
-Server-to-server callback that PhonePe POSTs to a merchant-configured URL on terminal payment events. Payloads are signed (X-VERIFY) so the merchant can verify authenticity before acting on the result.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/webhook](https://developer.phonepe.com/v1/docs/webhook)
-- **Base URL:** `customer-configured`
-
-#### Tags
-
-- Webhooks
-- Callbacks
-- Events
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/webhook)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Dynamic QR Solution
-
-Generates per-order dynamic QR codes for in-store collection, with order-linked status retrieval and callbacks. Targeted at retail counters and quick-service merchants.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/dynamic-qr](https://developer.phonepe.com/v1/docs/dynamic-qr)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
-
-#### Tags
-
-- QR
-- In Store
-- UPI
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/dynamic-qr)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Integrated Static QR
-
-Onboards a merchant store with a static PhonePe QR code that maps collected funds to the merchant account. Lower-touch alternative to dynamic QR for fixed-price kiosks and stalls.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/static-qr](https://developer.phonepe.com/v1/docs/static-qr)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
-
-#### Tags
-
-- QR
-- In Store
-- Static
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/static-qr)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Collect Call Solution
-
-Merchant-initiated UPI collect-request flow: the merchant raises a payment request to a customer's UPI handle, the customer approves in their UPI app, and the merchant is notified on completion.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/collect-call](https://developer.phonepe.com/v1/docs/collect-call)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
-
-#### Tags
-
-- UPI
-- Collect
-- In Store
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/collect-call)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Integrated EDC Solution
-
-Integration with PhonePe's EDC (Electronic Data Capture / POS) terminals, allowing merchant systems to push order amounts to the terminal and receive completion events.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/edc](https://developer.phonepe.com/v1/docs/edc)
-- **Base URL:** `https://api.phonepe.com/apis/pg`
-
-#### Tags
-
-- EDC
-- POS
-- In Store
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/edc)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Android SDK
-
-Native Android SDK that embeds the PhonePe checkout experience inside a merchant app, supporting the full PG flow across UPI and other payment methods.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/android-pg-sdk](https://developer.phonepe.com/v1/docs/android-pg-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/android-pg-sdk`
-
-#### Tags
-
-- SDK
-- Android
-- Mobile
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/android-pg-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe iOS SDK
-
-Native iOS SDK that embeds the PhonePe checkout experience inside a merchant iOS app.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/ios-pg-sdk](https://developer.phonepe.com/v1/docs/ios-pg-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/ios-pg-sdk`
-
-#### Tags
-
-- SDK
-- iOS
-- Mobile
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/ios-pg-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Flutter SDK
-
-Flutter plugin wrapping the PhonePe Android and iOS SDKs for cross-platform mobile checkout.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/flutter-pg-sdk](https://developer.phonepe.com/v1/docs/flutter-pg-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/flutter-pg-sdk`
-
-#### Tags
-
-- SDK
-- Flutter
-- Mobile
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/flutter-pg-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe React Native SDK
-
-React Native plugin wrapping the PhonePe Android and iOS SDKs for cross-platform mobile checkout.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/react-native-pg-sdk](https://developer.phonepe.com/v1/docs/react-native-pg-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/react-native-pg-sdk`
-
-#### Tags
-
-- SDK
-- React Native
-- Mobile
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/react-native-pg-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Ionic SDK
-
-Ionic plugin wrapping the PhonePe Android and iOS SDKs for hybrid mobile checkout.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/ionic-pg-sdk](https://developer.phonepe.com/v1/docs/ionic-pg-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/ionic-pg-sdk`
-
-#### Tags
-
-- SDK
-- Ionic
-- Mobile
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/ionic-pg-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Java Backend SDK
-
-Server-side Java SDK that wraps the PhonePe PG REST API, handling X-VERIFY signing, request modelling, and response parsing.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/java-backend-sdk](https://developer.phonepe.com/v1/docs/java-backend-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/java-backend-sdk`
-
-#### Tags
-
-- SDK
-- Java
-- Backend
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/java-backend-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Python Backend SDK
-
-Server-side Python SDK wrapping the PhonePe PG REST API.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/python-backend-sdk](https://developer.phonepe.com/v1/docs/python-backend-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/python-backend-sdk`
-
-#### Tags
-
-- SDK
-- Python
-- Backend
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/python-backend-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe Node.js Backend SDK
-
-Server-side Node.js SDK wrapping the PhonePe PG REST API.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/node-backend-sdk](https://developer.phonepe.com/v1/docs/node-backend-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/node-backend-sdk`
-
-#### Tags
-
-- SDK
-- Node.js
-- Backend
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/node-backend-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### PhonePe PHP Backend SDK
-
-Server-side PHP SDK wrapping the PhonePe PG REST API.
-
-- **Human URL:** [https://developer.phonepe.com/v1/docs/php-backend-sdk](https://developer.phonepe.com/v1/docs/php-backend-sdk)
-- **Base URL:** `https://developer.phonepe.com/v1/docs/php-backend-sdk`
-
-#### Tags
-
-- SDK
-- PHP
-- Backend
-
-#### Properties
-
-- [Documentation](https://developer.phonepe.com/v1/docs/php-backend-sdk)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Indus AppStore Developer Platform
-
-PhonePe's Indus AppStore is an India-first native Android app marketplace with a developer console for app submission, listings, releases, and analytics, positioning itself as a local alternative to Google Play in India.
-
-- **Human URL:** [https://www.indusappstore.com/developer/](https://www.indusappstore.com/developer/)
-- **Base URL:** `https://www.indusappstore.com/developer/`
-
-#### Tags
-
-- App Store
-- Distribution
-- Android
-
-#### Properties
-
-- [Website](https://www.indusappstore.com/developer/)
-- [Postman Collection](collections/phonepe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/phonepe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.phonepe.com/business-solutions/)
 - [Documentation](https://developer.phonepe.com/)
-- [LinkedIn](https://www.linkedin.com/company/phonepe)
-- [Git Hub](https://github.com/PhonePe)
-- [App Store](https://www.indusappstore.com/)
+- [Blog](https://www.phonepe.com/press/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** API Evangelist
-**URL:** https://apievangelist.com
+**Kin Score 24.7** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.7 |
+| Contract quality | 50.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 5.3 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.1** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/phonepe/](https://apis.io/providers/phonepe/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for PhonePe: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/phonepe/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
